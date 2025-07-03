@@ -18,7 +18,7 @@ PinkyBar est une application web moderne composée de :
 
 ## 📊 Modèle Conceptuel de Données (MCD)
 
-![](https://github.com/wefixte/pinky_le_bar/pinkybar.png?raw=true)
+![](https://github.com/wefixte/pinky_le_bar/blob/master/pinkybar.png?raw=true)
 
 ---
 
