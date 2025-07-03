@@ -152,10 +152,10 @@ function getAuthHeaders() {
 onMounted(async () => {
   try {
     const [catResp, ingResp] = await Promise.all([
-      axios.get(`${import.meta.env.VITE_API_URL}/api/cocktails/categories`, {
+      axios.get(`/api/cocktails/categories`, {
         headers: getAuthHeaders(),
       }),
-      axios.get(`${import.meta.env.VITE_API_URL}/api/cocktails/ingredients`, {
+      axios.get(`/api/cocktails/ingredients`, {
         headers: getAuthHeaders(),
       }),
     ]);
@@ -200,7 +200,7 @@ async function submitCocktail() {
       description: cocktail.description,
       imageUrl: cocktail.imageUrl,
     };
-    const resp = await axios.post(`${import.meta.env.VITE_API_URL}/api/cocktails`, cocktailData, {
+    const resp = await axios.post(`/api/cocktails`, cocktailData, {
       params: { categoryId: selectedCategoryId.value },
       headers: getAuthHeaders(),
     });
@@ -208,7 +208,7 @@ async function submitCocktail() {
 
     for (const ing of ingredientsSelected.value) {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/cocktails/${createdCocktailId.value}/ingredients`,
+        `/api/cocktails/${createdCocktailId.value}/ingredients`,
         null,
         {
           params: {
@@ -244,7 +244,7 @@ async function submitSizes() {
         throw new Error(`Prix invalide pour la taille ${sizeItem.size}`);
       }
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/cocktails/${createdCocktailId.value}/sizes`,
+        `/api/cocktails/${createdCocktailId.value}/sizes`,
         null,
         {
           params: {

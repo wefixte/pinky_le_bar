@@ -1,8 +1,7 @@
-<!--	Carte individuelle cocktail (image + nom + clic vers détails) -->
 <template>
   <div
     class="cocktail-card"
-    @click="$router.push(`/cocktails/${cocktail.id}`)"
+    @click="goToDetails"
   >
     <img :src="cocktail.image_url" :alt="cocktail.name" class="cocktail-image" />
     <h3 class="cocktail-name">{{ cocktail.name }}</h3>
@@ -10,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 
 interface Cocktail {
   id: number;
@@ -19,6 +18,11 @@ interface Cocktail {
 }
 
 const props = defineProps<{ cocktail: Cocktail }>();
+const router = useRouter();
+
+function goToDetails() {
+  router.push(`/cocktails/${props.cocktail.id}`);
+}
 </script>
 
 <style scoped>

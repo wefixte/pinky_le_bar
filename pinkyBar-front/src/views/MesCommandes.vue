@@ -46,7 +46,7 @@ function formatDate(dateString) {
 onMounted(async () => {
   try {
     const user = getUserInfoFromToken();
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/orders/user?email=${user.sub}`, {
+    const response = await axios.get(`/api/orders/user?email=${user.sub}`, {
     headers: getAuthHeaders()
   })
     orders.value = response.data

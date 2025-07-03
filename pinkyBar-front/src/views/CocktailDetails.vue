@@ -23,7 +23,7 @@
         <h2>Ingrédients</h2>
         <ul>
           <li v-for="ingredient in cocktail.ingredients" :key="ingredient.ingredientId">
-            {{ ingredient.ingredientName }} : {{ ingredient.quantity }} L
+            {{ ingredient.ingredientName }} : {{ ingredient.quantity }} cl
           </li>
         </ul>
       </section>
@@ -71,7 +71,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
 import { getAuthHeaders, hasRole } from '../utils/auth';
@@ -119,7 +119,7 @@ const cartStore = useCartStore();
 
 onMounted(async () => {
   try {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/cocktails/${id}`, {
+    const res = await axios.get(`/api/cocktails/${id}`, {
       headers: getAuthHeaders(),
     });
     cocktail.value = res.data;
@@ -191,7 +191,7 @@ async function deleteCocktail() {
   }
   deleting.value = true;
   try {
-    await axios.delete(`${import.meta.env.VITE_API_URL}/api/cocktails/${id}`, {
+    await axios.delete(`/api/cocktails/${id}`, {
       headers: getAuthHeaders(),
     });
     alert('Cocktail supprimé avec succès.');

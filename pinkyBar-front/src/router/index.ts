@@ -48,7 +48,7 @@ const router = createRouter({
 })
 
 // 🛡️ Garde globale pour la protection par rôle
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const requiredRole = to.meta.requiresRole
   if (!requiredRole) return next() // pas de restriction
 

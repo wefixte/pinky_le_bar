@@ -32,7 +32,7 @@ function getAuthHeaders() {
 
 onMounted(async () => {
   try {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/cocktails`, {
+    const res = await axios.get(`/api/cocktails`, {
       headers: getAuthHeaders(),
     });
     cocktails.value = res.data;
