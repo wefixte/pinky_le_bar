@@ -13,6 +13,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // Trouver toutes les commandes d’un utilisateur donné
     List<Order> findByUser(User user);
 
-    // Trouver commandes par status, utile pour barmaker (ex: status != terminé)
+    // Trouver commandes par status,  pour barmaker (ex: status != terminé)
     List<Order> findByStatus(String status);
 }

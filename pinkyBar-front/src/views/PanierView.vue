@@ -120,7 +120,7 @@ async function placeOrder() {
 
   const requestBody = {
   items: cartStore.items.map(item => ({
-    cocktailSizeId: item.cocktailSizeId, // obligatoire côté backend
+    cocktailSizeId: item.cocktailSizeId,
     quantity: item.quantity,
     })),
   };

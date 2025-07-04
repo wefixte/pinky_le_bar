@@ -27,7 +27,7 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<OrderDto> createOrder(@RequestBody CreateOrderRequest request) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getName(); // généralement le 'sub' du JWT
+        String email = authentication.getName();
 
         if (!userRepository.existsByEmail(email)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
